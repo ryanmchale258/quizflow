@@ -19,7 +19,8 @@ If you have issues, it's not the end of the world to just log in every time, but
 **LINK: [Generating SSH Keys](https://help.github.com/articles/generating-ssh-keys/)**
 
 #Database
-It was actually a lot easier than I thought to get this set up so that we share a common database running on my hosting but we can develop completely locally. Basically once you clone the repo to your htdocs folder you should be able to visit the url for it and see the live site. There won't be anything you need to do as far as adding :8888 to localhost because the db host isn't localhost at all but rather my IP address and sql port. If you have problems obviously let me know.
+~~It was actually a lot easier than I thought to get this set up so that we share a common database running on my hosting but we can develop completely locally. Basically once you clone the repo to your htdocs folder you should be able to visit the url for it and see the live site. There won't be anything you need to do as far as adding :8888 to localhost because the db host isn't localhost at all but rather my IP address and sql port. If you have problems obviously let me know.~~
+*Work in progress ^ *
 
 #GIT Workflow
 The main branch we will be working out of and maintaining will be ``develop``. The ``master`` branch is protected and will ultimately be our delivery ready files. I'll be periodically merging the project files from ``develop`` into ``master`` to make sure we always have that as a safety.
