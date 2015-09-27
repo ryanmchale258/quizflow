@@ -120,3 +120,11 @@ If this branch came about as a result of being assigned an Issue, list the issue
 ```
 #2
 ```
+
+Then you assign your reviewer from the menu on the right-hand side bar. That will always be me (``@ryanmchale258``) by default. I will be assigning you things to review as well. You'll get an email whenever that happens, but you can also always just check the Pull Requests page for the project to see if you have anything assigned to review.
+
+Once I have reviewed and merged your branch, if an Issue number was specified, I will close that issue.
+
+If you have reviewed something of mine and you believe it is ready to be merged, just assign it back to me to merge into develop.
+
+When you are starting a new round of work after taking some time away, always make sure you ``checkout`` ``develop`` and do a ``git pull`` to ensure you're working with the most up to date files.

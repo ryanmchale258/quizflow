@@ -1,5 +1,7 @@
 *.log
-.idea
+.idea/
+.idea/workspace.xml
+*.iws
 .htaccess
 sitemap.xml
 sitemap.xml.gz
