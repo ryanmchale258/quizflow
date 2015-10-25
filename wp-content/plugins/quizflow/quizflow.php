@@ -13,18 +13,18 @@
 function register_cpt_qf_quiz() {
  
     $labels = array(
-        'name' => _x( 'QF Quizzes', 'qf_quiz' ),
-        'singular_name' => _x( 'QF Quiz', 'qf_quiz' ),
-        'add_new' => _x( 'Add New', 'qf_quiz' ),
-        'add_new_item' => _x( 'Add New Quiz', 'qf_quiz' ),
-        'edit_item' => _x( 'Edit Quiz', 'qf_quiz' ),
-        'new_item' => _x( 'New Quiz', 'qf_quiz' ),
-        'view_item' => _x( 'View Quiz', 'qf_quiz' ),
-        'search_items' => _x( 'Search Quizzes', 'qf_quiz' ),
-        'not_found' => _x( 'No quizzes found', 'qf_quiz' ),
-        'not_found_in_trash' => _x( 'No quizzes found in Trash', 'qf_quiz' ),
-        'parent_item_colon' => _x( 'Parent Quiz:', 'qf_quiz' ),
-        'menu_name' => _x( 'Quizzes', 'qf_quiz' ),
+        'name' => __( 'QF Quizzes', 'qf_quiz' ),
+        'singular_name' => __( 'QF Quiz', 'qf_quiz' ),
+        'add_new' => __( 'Add New', 'qf_quiz' ),
+        'add_new_item' => __( 'Add New Quiz', 'qf_quiz' ),
+        'edit_item' => __( 'Edit Quiz', 'qf_quiz' ),
+        'new_item' => __( 'New Quiz', 'qf_quiz' ),
+        'view_item' => __( 'View Quiz', 'qf_quiz' ),
+        'search_items' => __( 'Search Quizzes', 'qf_quiz' ),
+        'not_found' => __( 'No quizzes found', 'qf_quiz' ),
+        'not_found_in_trash' => __( 'No quizzes found in Trash', 'qf_quiz' ),
+        'parent_item_colon' => __( 'Parent Quiz:', 'qf_quiz' ),
+        'menu_name' => __( 'Quizzes', 'qf_quiz' ),
     );
  
     $args = array(
