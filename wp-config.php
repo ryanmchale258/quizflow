@@ -15,7 +15,7 @@
  */
 
 define('WP_HOME','http://localhost:8888/quizflow');
-define('WP_SITEURL','http://ocalhost:8888/quizflow');
+define('WP_SITEURL','http://localhost:8888/quizflow');
  
 // Include local configuration
 if (file_exists(dirname(__FILE__) . '/local-config.php')) {
