@@ -13,6 +13,9 @@
  *
  * @package WordPress
  */
+
+define('WP_HOME','http://localhost:8888/quizflow');
+define('WP_SITEURL','http://ocalhost:8888/quizflow');
  
 // Include local configuration
 if (file_exists(dirname(__FILE__) . '/local-config.php')) {
@@ -27,7 +30,7 @@ if (!defined('DB_USER')) {
 	define('DB_USER', 'root');
 }
 if (!defined('DB_PASSWORD')) {
-	define('DB_PASSWORD', '');
+	define('DB_PASSWORD', 'root');
 }
 if (!defined('DB_HOST')) {
 	define('DB_HOST', 'localhost');
