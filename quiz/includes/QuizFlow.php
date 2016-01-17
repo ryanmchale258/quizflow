@@ -42,7 +42,17 @@ class QuizFlow {
             $stage = 1;
         }
 
-        $query = 'SELECT * FROM `qf_questions` WHERE `questions_quiz` = ' . $this->getQuiz()->quiz_id . ' AND `questions_stage` = ' . $stage;
+        if(isset($_GET['stage'])) {
+            $node = $_GET['input'];
+        } else {
+            $node = 'a';
+        }
+
+        $query = 'SELECT * FROM `qf_questions` WHERE `questions_quiz` = ' .
+            $this->getQuiz()->quiz_id .
+            ' AND `questions_stage` = ' .
+            $stage . ' AND (`questions_input` = "' . $node .
+            '" OR `questions_input` IS NULL)';
 
         if($result = $this->_db()->get_row($query, OBJECT)) {
             return $result;

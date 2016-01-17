@@ -61,6 +61,7 @@ CREATE TABLE `quizflow`.`qf_questions` (
 `questions_id` INT(4) UNSIGNED NOT NULL AUTO_INCREMENT ,
 `questions_quiz` INT(4) NOT NULL ,
 `questions_stage` INT(4) NOT NULL ,
+`questions_input` VARCHAR(1) ,
 `questions_question` TEXT NOT NULL ,
 `questions_exits` TEXT NOT NULL ,
 `questions_exits_ids` VARCHAR(150) NOT NULL ,
