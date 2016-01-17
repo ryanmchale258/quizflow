@@ -48,7 +48,7 @@ class QuizFlow {
             return $result;
         }
 
-        return $this->getEndPoint();
+        return false;
     }
 
     public function getQuestion() {
@@ -68,7 +68,26 @@ class QuizFlow {
         return $options;
     }
 
+    public function getStage() {
+        $uri = $_SERVER['REQUEST_URI'];
+
+        if(strpos($uri, 'stage=') !== false) {
+            $parts = explode('stage=', $uri);
+
+            if(isset($parts[1])) {
+                $partsArray = explode('&', $parts[1]);
+
+                return $partsArray[0];
+            }
+
+            return false;
+        }
+
+        return '1';
+    }
+
     public function getUrl($node) {
-        return $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '&input=' . $node;
+        $nextStage = (int)$this->getStage() + 1;
+        return $_SERVER['REQUEST_URI'] . '&stage=' . $nextStage . '&input=' . $node;
     }
 }
