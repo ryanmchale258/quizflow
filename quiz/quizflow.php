@@ -16,7 +16,7 @@ $qf = new QuizFlow($_GET['quiz']);
 <script type = "text/javascript">
   function OnClose()
   {
-    if(window.opener != null && !window.opener.closed) 
+    if(window.opener != null && !window.opener.closed)
     {
        window.opener.HideModalDiv();
     }
