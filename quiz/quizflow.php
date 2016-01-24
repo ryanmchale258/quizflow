@@ -30,6 +30,7 @@ $qf = new QuizFlow($_GET['quiz']);
 			</div>
 			<h1 class="quiz-title"><?php echo $qf->getQuiz()->quiz_name; ?></h1>
 		</header>
+        <?php print_r($qf->getEndpoint()); ?>
 		<section class="quiz-body">
 			<h2 class="quiz-question"><?php echo $qf->getQuestion(); ?></h2>
 			<div class="row">
