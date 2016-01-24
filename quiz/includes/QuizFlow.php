@@ -47,7 +47,7 @@ class QuizFlow {
                         AND `qf_products`.`products_id` = `qf_products_endpoints`.`products_endpoints_product`
                         AND `endpoints_path` = "' . $path . '"';
 
-            if ($result = $this->_db()->get_row($query, OBJECT)) {
+            if ($result = $this->_db()->get_results($query, OBJECT)) {
                 return $result;
             }
 
