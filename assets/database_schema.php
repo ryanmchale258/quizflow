@@ -19,6 +19,7 @@ id path
 CREATE TABLE `quizflow`.`qf_endpoints` (
 `endpoints_id` INT(4) UNSIGNED NOT NULL AUTO_INCREMENT ,
 `endpoints_path` VARCHAR(100) NOT NULL ,
+`endpoints_description` TEXT NOT NULL ,
 PRIMARY KEY (`endpoints_id`)) ENGINE = InnoDB;
 
 Products_Endpoint
@@ -58,7 +59,9 @@ id stage question exits         node_id
 	1	    text	no,no,yes		0,0,1
 CREATE TABLE `quizflow`.`qf_questions` (
 `questions_id` INT(4) UNSIGNED NOT NULL AUTO_INCREMENT ,
+`questions_quiz` INT(4) NOT NULL ,
 `questions_stage` INT(4) NOT NULL ,
+`questions_input` VARCHAR(1) ,
 `questions_question` TEXT NOT NULL ,
 `questions_exits` TEXT NOT NULL ,
 `questions_exits_ids` VARCHAR(150) NOT NULL ,

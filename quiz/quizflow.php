@@ -1,3 +1,8 @@
+<?php
+require_once('includes/QuizFlow.php');
+/** @var QuizFlow $qf */
+$qf = new QuizFlow($_GET['quiz']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,14 +28,14 @@
 			<div class="logoArea">
 				<img id="logo" src="images/logo.png" height="230" width="309" alt="Batty's Bath Logo">
 			</div>
-			<h1 class="quiz-title">Find the Perfect Cleanser and/or Exfoliator For Your Skin</h1>
+			<h1 class="quiz-title"><?php echo $qf->getQuiz()->quiz_name; ?></h1>
 		</header>
 		<section class="quiz-body">
-			<h2 class="quiz-question">Do you want to exfoliate at the same time as cleansing in the AM & PM?</h2>
+			<h2 class="quiz-question"><?php echo $qf->getQuestion(); ?></h2>
 			<div class="row">
-				<a href="/quizflow/quiz/no-1.php" class="quiz-answers"><div class="quiz-answers-con large-4 columns">No, my skin is so sensitive I need an extremely mild cleanser & a non-abrasive exfoliant</div></a>
-				<a href="#" class="quiz-answers"><div class="quiz-answers-con large-4 columns">No, I'd like to cleanse in the AM & do both in the PM</div></a>
-				<a href="#" class="quiz-answers"><div class="quiz-answers-con large-4 columns">Yes, exfoliating is needed both in the AM & PM because I have a lot of congestion (blackheads and/or whiteheads) or flakey</div></a>
+                <?php foreach($qf->getOptions() as $node => $answer): ?>
+                    <a href="<?php echo $qf->getUrl($node); ?>" class="quiz-answers"><div class="quiz-answers-con large-4 columns"><?php echo $answer; ?></div></a>
+                <?php endforeach; ?>
 			</div>
 		</section>
 		<footer class="quiz-footer">
