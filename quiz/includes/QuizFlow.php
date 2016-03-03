@@ -3,7 +3,7 @@ define('SHORTINIT', true);
 $path = $_SERVER['DOCUMENT_ROOT'] . '/quizflow';
 require_once($path . '/wp-load.php');
 class QuizFlow {
-    const QUIZ_URL = WP_HOME . '/quiz/quizflow.php';
+    const QUIZ_URL = 'quiz/quizflow.php';
 
     protected $_database;
     protected $_quiz;
@@ -29,7 +29,7 @@ class QuizFlow {
     }
 
     protected function _setQuiz($quizId) {
-        $query   = mysql_real_escape_string('SELECT * FROM `qf_quiz` WHERE `quiz_id` = ' . $quizId);
+        $query   = 'SELECT * FROM `qf_quiz` WHERE `quiz_id` = ' . $quizId;
         $results = $this->_db()->get_row($query, OBJECT);
 
         $this->_quiz = $results;
@@ -114,7 +114,7 @@ class QuizFlow {
 
     public function getUrl($node) {
         $nextStage = (int)$this->_getStage() + 1;
-        $url       = self::QUIZ_URL . '?quiz=' . $this->getQuiz()->quiz_id . '&stage=' . $nextStage . '&input=' . $node;
+        $url       = WP_HOME . self::QUIZ_URL . '?quiz=' . $this->getQuiz()->quiz_id . '&stage=' . $nextStage . '&input=' . $node;
 
         if ($path = $this->_getParam('path')) {
             $path .= sprintf('_%s:%s', $this->_getStage(), $node);
