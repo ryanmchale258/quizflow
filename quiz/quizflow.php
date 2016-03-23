@@ -31,12 +31,34 @@ $qf = new QuizFlow($_GET['quiz']);
 			<h1 class="quiz-title"><?php echo $qf->getQuiz()->quiz_name; ?></h1>
 		</header>
 		<section class="quiz-body">
-			<h2 class="quiz-question"><?php echo $qf->getQuestion(); ?></h2>
-			<div class="row">
-                <?php foreach($qf->getOptions() as $node => $answer): ?>
-                    <a href="<?php echo $qf->getUrl($node); ?>" class="quiz-answers"><div class="quiz-answers-con large-4 columns"><?php echo $answer; ?></div></a>
-                <?php endforeach; ?>
-			</div>
+            <?php if($endpoints = $qf->getEndpoint()): ?>
+                <h2 class="best-pick">Your best pick:</h2>
+                <div class="row">
+                    <p class="quiz-endpoint">
+                        <?php echo $endpoints[0]->endpoints_description; ?>
+                    </p>
+                </div>
+                <div class="row">
+                    <?php foreach($endpoints as $endpoint): ?>
+                        <div class="quiz-products-con large-6 columns">
+                            <h3><?php echo $endpoint->products_name; ?></h3>
+                            <a class="buy-btn" href="<?php echo $endpoint->products_url; ?>" target="_blank">Buy</a>
+                            <div class="product-img">
+                                <img src="<?php echo $endpoint->products_image; ?>" alt="<?php echo $endpoint->products_name; ?>">
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php elseif ($question = $qf->getQuestion()): ?>
+                <h2 class="quiz-question"><?php echo $question; ?></h2>
+                <?php if($options = $qf->getOptions()): ?>
+                    <div class="row">
+                        <?php foreach($options as $node => $answer): ?>
+                            <a href="<?php echo $qf->getUrl($node); ?>" class="quiz-answers"><div class="quiz-answers-con large-4 columns"><?php echo $answer; ?></div></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
 		</section>
 		<footer class="quiz-footer">
 			<p>© 2016 Batty's Bath | <a href="http://battysbath.ca/the-fine-print/#term" target="_blank">Terms of Use</a> | <a href="http://battysbath.ca/the-fine-print/#disclaimer" target="_blank">Disclaimer</a> | <a href="http://battysbath.ca/the-fine-print/#privacy" target="_blank">Privacy Policy</a><br><a href="http://www.battysbath.ca" target="_blank">battysbath.ca</a> | <a href="http://www.shopbattysbath.com" target="_blank">shopbattysbath.com</a></p>
