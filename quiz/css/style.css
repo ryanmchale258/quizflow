@@ -1,5 +1,7 @@
 /* Stylesheet for the Batty's Bath QuizFLow */
 
+@import url(https://fonts.googleapis.com/css?family=Cinzel);
+
 @font-face {
     font-family: 'signoriaregular';
     src: url('../fonts/signoria_regular-webfont.eot');
@@ -12,9 +14,8 @@
     font-style: normal;
 }
 
-
-
 a {
+    color: #8069BB;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -o-transition: 0.3s;
@@ -22,9 +23,13 @@ a {
     transition: 0.3s;
 }
 
+a:hover, a:active, a:focus  {
+    color: #C1BBD5;
+}
+
 body {
-    background-color: #D6FDF4;
-    color: #a1a1a1;
+    background-color: #fff;
+    color: #393837;
     font-size: 14px;
     font-style: italic;
     font-family: "Old Standard TT",Arial,Helvetica,sans-serif;
@@ -34,7 +39,7 @@ body {
 }
 
 .quiz-title, h1, h2, h3, h4, h5, h6 {
-    font-family: signoriaregular,Arial,Helvetica,sans-serif;
+    font-family: "Cinzel",Arial,Helvetica,sans-serif;
     text-transform: uppercase;
     font-weight: 400;
     font-style: normal;
@@ -46,6 +51,7 @@ body {
 #page {
     max-width: 50rem;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 header {
@@ -72,6 +78,7 @@ header {
 
 .quiz-title {
     margin: 0 auto;
+    margin-bottom: 20px;
     padding: 10px 0;
     border-bottom: double 4px rgba(0,0,0,0.1);
     font-size: 1.15em;
@@ -80,12 +87,12 @@ header {
 .quiz-question, .best-pick {
     margin: 0 0 32px 0;
     color: #8069BB;
-    font-family: "Old Standard TT", times, sans-serif;
+    font-family: "Libre Baskerville", times, sans-serif;
     text-transform: none;
     text-align: center;
     font-style: italic;
-    font-size: 1.15em;
-    font-weight: bold;
+    font-size: 1.2em;
+    font-weight: normal;
 }
 
 .best-pick {
@@ -94,15 +101,19 @@ header {
 
 .quiz-answers-con {
     margin: 0 10px;
-    border: 1px rgba(0,0,0,0.1) solid;
+    border: 1px rgba(0,0,0,0.4) solid;
     border-radius: 8px;
     padding: 10px;
     text-align: center;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    -ms-transition: 0.2s;
-    transition: 0.2s;
+    -webkit-transition:0.2s ease-in-out;
+    -moz-transition:0.2s ease-in-out;
+    -o-transition:0.2s ease-in-out;
+    -ms-transition:0.2s ease-in-out;
+    transition:0.2s ease-in-out;
+}
+
+.quiz-answers .quiz-answers-con {
+    color: #222;
 }
 
 .quiz-answers-con.large-4, .quiz-products-con.large-4 {
@@ -114,7 +125,7 @@ header {
 }
 
 .quiz-answers-con:hover, .buy-btn:hover {
-    background-color: #8069BB;
+    background-color: #393837;
     color: #fff;
 }
 
@@ -144,7 +155,6 @@ header {
 
 
 .quiz-answers, .quiz-endpoint {
-    color: #279151;
     font-family: 'signoriaregular', arial, sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -167,6 +177,8 @@ header {
     .quiz-answers-con.large-4 {
         width: 100%;
         margin-bottom: 20px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .quiz-answers-con.large-6 {
