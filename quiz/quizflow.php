@@ -33,6 +33,7 @@ $qf = new QuizFlow($_GET['quiz']);
 		</header>
 		<section class="quiz-body">
             <?php if($endpoints = $qf->getEndpoint()): ?>
+                <?php $columns = count($endpoints) > 1 ? 'large-6' : 'large-12'; ?>
                 <h2 class="best-pick">Your best pick:</h2>
                 <div class="row">
                     <p class="quiz-endpoint">
@@ -41,7 +42,7 @@ $qf = new QuizFlow($_GET['quiz']);
                 </div>
                 <div class="row">
                     <?php foreach($endpoints as $endpoint): ?>
-                        <div class="quiz-products-con large-6 columns">
+                        <div class="quiz-products-con <?php echo $columns; ?> columns">
                             <h3><?php echo $endpoint->products_name; ?></h3>
                             <a class="buy-btn" href="<?php echo $endpoint->products_url; ?>" target="_blank">Buy</a>
                             <div class="product-img">
@@ -53,9 +54,10 @@ $qf = new QuizFlow($_GET['quiz']);
             <?php elseif ($question = $qf->getQuestion()): ?>
                 <h2 class="quiz-question"><?php echo $question; ?></h2>
                 <?php if($options = $qf->getOptions()): ?>
+                    <?php $columns = (count($options) % 3 === 0) ? 'large-4' : 'large-6'; ?>
                     <div class="row">
                         <?php foreach($options as $node => $answer): ?>
-                            <a href="<?php echo $qf->getUrl($node); ?>" class="quiz-answers"><div class="quiz-answers-con large-4 columns"><?php echo $answer; ?></div></a>
+                            <a href="<?php echo $qf->getUrl($node); ?>" class="quiz-answers"><div class="quiz-answers-con <?php echo $columns ?> columns"><?php echo $answer; ?></div></a>
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
