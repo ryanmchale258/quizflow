@@ -7,6 +7,7 @@ $qf = new QuizFlow($_GET['quiz']);
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>QuizFlow Design</title>
 	<link rel="stylesheet" type="text/css" href="css/foundation.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
