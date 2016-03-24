@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `qf_endpoints`;
+
 CREATE TABLE `qf_endpoints` (
   `endpoints_id` int(4) UNSIGNED NOT NULL,
   `endpoints_path` varchar(100) NOT NULL,
@@ -17,6 +19,8 @@ INSERT INTO `qf_endpoints` (`endpoints_id`, `endpoints_path`, `endpoints_descrip
 --
 -- Table structure for table `qf_endpoints_quizzes`
 --
+
+DROP TABLE IF EXISTS `qf_endpoints_quizzes`;
 
 CREATE TABLE `qf_endpoints_quizzes` (
   `endpoints_quizzes_id` int(4) UNSIGNED NOT NULL,
@@ -38,6 +42,8 @@ INSERT INTO `qf_endpoints_quizzes` (`endpoints_quizzes_id`, `endpoints_quizzes_e
 -- Table structure for table `qf_products`
 --
 
+DROP TABLE IF EXISTS `qf_products`;
+
 CREATE TABLE `qf_products` (
   `products_id` int(4) UNSIGNED NOT NULL,
   `products_name` varchar(75) NOT NULL,
@@ -51,8 +57,8 @@ CREATE TABLE `qf_products` (
 --
 
 INSERT INTO `qf_products` (`products_id`, `products_name`, `products_sku`, `products_url`, `products_image`) VALUES
-(1, 'Soothing Cleanser', '13541', 'test.com/test', 'test.jpg'),
-(2, 'Black Charcoal Soap', '45321', 'test.com/test', 'test.jpg'),
+(1, 'Soothing Cleanser', '13541', 'test.com/test', 'images/soothing-cleanser.jpg'),
+(2, 'Black Charcoal Soap', '45321', 'test.com/test', 'images/black-charcoal-soap.jpg'),
 (3, 'Green Tea &amp; Pineapple Liquid Facial Cleanser', '4532121', 'test.com/test', 'test.jpg');
 
 -- --------------------------------------------------------
@@ -60,6 +66,8 @@ INSERT INTO `qf_products` (`products_id`, `products_name`, `products_sku`, `prod
 --
 -- Table structure for table `qf_products_endpoints`
 --
+
+DROP TABLE IF EXISTS `qf_products_endpoints`;
 
 CREATE TABLE `qf_products_endpoints` (
   `products_endpoints_id` int(4) UNSIGNED NOT NULL,
@@ -82,6 +90,8 @@ INSERT INTO `qf_products_endpoints` (`products_endpoints_id`, `products_endpoint
 --
 -- Table structure for table `qf_questions`
 --
+
+DROP TABLE IF EXISTS `qf_questions`;
 
 CREATE TABLE `qf_questions` (
   `questions_id` int(4) UNSIGNED NOT NULL,
@@ -109,6 +119,8 @@ INSERT INTO `qf_questions` (`questions_id`, `questions_quiz`, `questions_stage`,
 -- Table structure for table `qf_quiz`
 --
 
+DROP TABLE IF EXISTS `qf_quiz`;
+
 CREATE TABLE `qf_quiz` (
   `quiz_id` int(4) UNSIGNED NOT NULL,
   `quiz_name` varchar(75) NOT NULL,
@@ -124,17 +136,6 @@ INSERT INTO `qf_quiz` (`quiz_id`, `quiz_name`, `quiz_datetime`, `quiz_active`) V
 (1, 'Find the Perfect Cleanser and/or Exfoliator For Your Skin', '2016-01-10 17:43:13', 1);
 
 -- --------------------------------------------------------
-
---
--- Table structure for table `qf_quizzes_questions_products`
---
-
-CREATE TABLE `qf_quizzes_questions_products` (
-  `quizzes_questions_products_id` int(4) UNSIGNED NOT NULL,
-  `quizzes_questions_products_quiz` int(4) UNSIGNED NOT NULL,
-  `quizzes_questions_products_question` int(4) UNSIGNED NOT NULL,
-  `quizzes_questions_products_product` int(4) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `qf_endpoints`
   ADD PRIMARY KEY (`endpoints_id`);
@@ -169,12 +170,6 @@ ALTER TABLE `qf_questions`
 ALTER TABLE `qf_quiz`
   ADD PRIMARY KEY (`quiz_id`);
 
---
--- Indexes for table `qf_quizzes_questions_products`
---
-ALTER TABLE `qf_quizzes_questions_products`
-  ADD PRIMARY KEY (`quizzes_questions_products_id`);
-
   ALTER TABLE `qf_endpoints`
   MODIFY `endpoints_id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
@@ -202,8 +197,3 @@ ALTER TABLE `qf_questions`
 --
 ALTER TABLE `qf_quiz`
   MODIFY `quiz_id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `qf_quizzes_questions_products`
---
-ALTER TABLE `qf_quizzes_questions_products`
-  MODIFY `quizzes_questions_products_id` int(4) UNSIGNED NOT NULL AUTO_INCREMENT;
