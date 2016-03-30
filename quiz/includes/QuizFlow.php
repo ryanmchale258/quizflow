@@ -38,8 +38,8 @@ class QuizFlow {
     }
 
     protected function _getEndpointData() {
-        if (isset($_GET['path'])) {
-            $path = $_GET['path'];
+        if ($path = $this->_getParam('path')) {
+            $path = $this->getQuiz()->quiz_id . '_' . $path;
 
             $query = 'SELECT `endpoints_description`, `products_name`, `products_sku`, `products_url`, `products_image`
                         FROM `qf_endpoints`, `qf_products_endpoints`, `qf_products`
@@ -62,23 +62,17 @@ class QuizFlow {
     }
 
     protected function _getQuestionData() {
-        if (isset($_GET['stage'])) {
-            $stage = $_GET['stage'];
-        } else {
-            $stage = 1;
-        }
+        $path = $this->_getPath();
 
-        if (isset($_GET['stage'])) {
-            $node = $_GET['input'];
+        if ($path) {
+            $query = 'SELECT * FROM `qf_questions` WHERE `questions_quiz` = ' .
+                $this->getQuiz()->quiz_id .
+                ' AND `questions_path` = \'' . $path . '\'';
         } else {
-            $node = 'a';
+            $query = 'SELECT * FROM `qf_questions` WHERE `questions_quiz` = ' .
+                $this->getQuiz()->quiz_id .
+                ' AND `questions_path` IS NULL';
         }
-
-        $query = 'SELECT * FROM `qf_questions` WHERE `questions_quiz` = ' .
-            $this->getQuiz()->quiz_id .
-            ' AND `questions_stage` = ' .
-            $stage . ' AND (`questions_input` = "' . $node .
-            '" OR `questions_input` IS NULL)';
 
         if ($result = $this->_db()->get_row($query, OBJECT)) {
             return $result;
@@ -104,6 +98,10 @@ class QuizFlow {
         return $options;
     }
 
+    protected function _getPath() {
+        return $this->_getParam('path');
+    }
+
     protected function _getStage() {
         if ($stage = $this->_getParam('stage')) {
             return $stage;
@@ -112,14 +110,16 @@ class QuizFlow {
         return 1;
     }
 
-    public function getUrl($node) {
-        $nextStage = (int)$this->_getStage() + 1;
-        $url       = WP_HOME . self::QUIZ_URL . '?quiz=' . $this->getQuiz()->quiz_id . '&stage=' . $nextStage . '&input=' . $node;
 
-        if ($path = $this->_getParam('path')) {
-            $path .= sprintf('_%s:%s', $this->_getStage(), $node);
+    public function getUrl($input) {
+        $nextStage = (int)$this->_getStage() + 1;
+        $url       = WP_HOME . self::QUIZ_URL . '?quiz=' . $this->getQuiz()->quiz_id . '&stage=' . $nextStage;
+        $node = sprintf('%s:%s', $this->_getStage(), $input);
+
+        if($path = $this->_getPath()) {
+            $path .= '_' . $node;
         } else {
-            $path = sprintf('%s_%s:%s', $this->getQuiz()->quiz_id, $this->_getStage(), $node);
+            $path = $node;
         }
 
         return $url . '&path=' . $path;
@@ -147,9 +147,5 @@ class QuizFlow {
         }
 
         return false;
-    }
-
-    public function getPath() {
-        return $this->_getParam('path');
     }
 }
