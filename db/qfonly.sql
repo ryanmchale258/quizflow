@@ -95,23 +95,13 @@ DROP TABLE IF EXISTS `qf_questions`;
 
 CREATE TABLE `qf_questions` (
   `questions_id` int(4) UNSIGNED NOT NULL,
-  `questions_quiz` int(4) UNSIGNED NOT NULL,
   `questions_stage` int(4) NOT NULL,
-  `questions_input` varchar(1) DEFAULT NULL,
+  `questions_path` varchar(150) DEFAULT NULL,
+  `questions_quiz` int(4) UNSIGNED NOT NULL,
   `questions_question` text NOT NULL,
   `questions_exits` text NOT NULL,
   `questions_exits_ids` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `qf_questions`
---
-
-INSERT INTO `qf_questions` (`questions_id`, `questions_quiz`, `questions_stage`, `questions_input`, `questions_question`, `questions_exits`, `questions_exits_ids`) VALUES
-(1, 1, 1, NULL, 'Do you want to exfoliate at the same time as cleansing in the AM &amp; PM?', 'No, my skin is so sensitive I need an extremely mild cleanser &amp; a non-abrasive exfoliant.|No, I''d like to cleanse in the AM &amp; do both in the PM.|Yes, exfoliating is needed both in the AM &amp; PM because I have a lot of congestion (blackheads and whiteheads) or flakey.', 'a|b|c'),
-(2, 1, 2, 'a', 'Do you have acne?', 'No|Yes', 'a|b'),
-(3, 1, 3, 'a', 'Are you sure? Pizza face?', 'Fuck you|Don''t look at me|I hate myself', ''),
-(4, 1, 3, 'b', 'Yeah I don''t know why I even asked that. It''s obvious. You''re ugly.', 'Thanks|Cool', '');
 
 -- --------------------------------------------------------
 
