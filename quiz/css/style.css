@@ -153,6 +153,18 @@ header {
     transition: 0.2s;
 }
 
+.answers-row, .products-row {
+    margin-bottom: 40px;
+}
+
+.extra-buttons-con {
+    border-radius: 6px;
+}
+
+.extra-buttons {
+    font-size: 16px;
+}
+
 
 .quiz-answers, .quiz-endpoint {
     font-family: 'signoriaregular', arial, sans-serif;
