@@ -111,7 +111,11 @@ class QuizFlow {
     }
 
 
-    public function getUrl($input) {
+    public function getUrl($input = null) {
+        if(!$input) {
+            return WP_HOME . self::QUIZ_URL . '?quiz=' . $this->getQuiz()->quiz_id;
+        }
+
         $nextStage = (int)$this->_getStage() + 1;
         $url       = WP_HOME . self::QUIZ_URL . '?quiz=' . $this->getQuiz()->quiz_id . '&stage=' . $nextStage;
         $node = sprintf('%s:%s', $this->_getStage(), $input);
