@@ -38,7 +38,7 @@ window.onunload = OnClose;
                     <?php echo $endpoints[0]->endpoints_description; ?>
                 </p>
             </div>
-            <div class="row">
+            <div class="row products-row">
                 <?php foreach ($endpoints as $endpoint): ?>
                     <div class="quiz-products-con <?php echo $columns; ?> columns">
                         <h3><?php echo $endpoint->products_name; ?></h3>
@@ -54,7 +54,7 @@ window.onunload = OnClose;
             <h2 class="quiz-question"><?php echo $question; ?></h2>
             <?php if ($options = $qf->getOptions()): ?>
                 <?php $columns = (count($options) % 3 === 0) ? 'large-4' : 'large-6'; ?>
-                <div class="row">
+                <div class="row answers-row">
                     <?php foreach ($options as $node => $answer): ?>
                         <a href="<?php echo $qf->getUrl($node); ?>" class="quiz-answers">
                             <div class="quiz-answers-con <?php echo $columns ?> columns"><?php echo $answer; ?></div>
@@ -63,6 +63,14 @@ window.onunload = OnClose;
                 </div>
             <?php endif; ?>
         <?php endif; ?>
+        <div class="row">
+            <a href="#" class="extra-buttons">
+                <div class="extra-buttons-con large-push-3 large-3 columns">Previous Question</div>
+            </a>
+            <a href="#" class="extra-buttons">
+                <div class="extra-buttons-con large-push-3 large-3 columns">Start Over</div>
+            </a>
+        </div>
     </section>
     <footer class="quiz-footer">
         <p>© 2016 Batty's Bath | <a href="http://battysbath.ca/the-fine-print/#term" target="_blank">Terms of Use</a> |
