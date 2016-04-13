@@ -180,9 +180,16 @@ header {
     margin-top: 30px;
 }
 
+.footer-border {
+    border-bottom: 1px solid rgba(128, 105, 187, 0.16);
+    width: 40%;
+    margin-bottom: 20px;
+}
+
 .quiz-footer {
     margin-top: 60px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 602px) {

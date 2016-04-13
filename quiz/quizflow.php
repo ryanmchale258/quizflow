@@ -8,7 +8,8 @@ $qf = new QuizFlow($_GET['quiz']);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QuizFlow Design</title>
+<title><?php echo $qf->getQuiz()->quiz_name; ?> | Batty's Bath | Natural Skin Care Solutions</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 <link rel="stylesheet" type="text/css" href="css/foundation.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link href='https://fonts.googleapis.com/css?family=Old+Standard+TT' rel='stylesheet' type='text/css'>
@@ -73,6 +74,7 @@ window.onunload = OnClose;
         </div>
     </section>
     <footer class="quiz-footer">
+        <div class="footer-border row"></div>
         <p>© 2016 Batty's Bath | <a href="http://battysbath.ca/the-fine-print/#term" target="_blank">Terms of Use</a> |
             <a href="http://battysbath.ca/the-fine-print/#disclaimer" target="_blank">Disclaimer</a> |
             <a href="http://battysbath.ca/the-fine-print/#privacy" target="_blank">Privacy Policy</a><br><a href="http://www.battysbath.ca" target="_blank">battysbath.ca</a> |
