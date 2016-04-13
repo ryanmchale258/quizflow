@@ -64,10 +64,10 @@ window.onunload = OnClose;
             <?php endif; ?>
         <?php endif; ?>
         <div class="row">
-            <a href="#" class="extra-buttons">
+            <a href="#" onclick="window.history.go(-1);" class="extra-buttons">
                 <div class="extra-buttons-con large-push-3 large-3 columns">Previous Question</div>
             </a>
-            <a href="#" class="extra-buttons">
+            <a href="<?php echo $qf->getUrl(); ?>" class="extra-buttons">
                 <div class="extra-buttons-con large-push-3 large-3 columns">Start Over</div>
             </a>
         </div>
