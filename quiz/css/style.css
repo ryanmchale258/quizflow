@@ -192,6 +192,12 @@ header {
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 420px) {
+    #logo {
+        max-width: 60%;
+    }
+}
+
 @media screen and (max-width: 602px) {
     .quiz-answers-con.large-4 {
         width: 100%;
@@ -200,8 +206,23 @@ header {
         margin-right: 0;
     }
 
-    .quiz-answers-con.large-6 {
-        width: 100%;
-}
 }
 
+@media screen and (max-width: 722px) {
+    .quiz-answers-con.large-6, .quiz-products-con.large-6 {
+        width: 100%;
+        margin-bottom: 20px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .quiz-products-con.large-6 {
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .extra-buttons-con {
+        margin-bottom: 20px;
+    }
+}
